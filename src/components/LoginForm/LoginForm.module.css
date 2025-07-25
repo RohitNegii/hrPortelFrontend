@@ -1,0 +1,164 @@
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: left;
+  color: #222;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex:1
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 10px;
+}
+
+.required {
+  color: red;
+  margin-left: 4px;
+}
+
+input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+input:focus {
+  border-color: #6a0dad;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn {
+  background: #4D007D;
+  color: white;
+  padding: 12px 3rem;
+  margin-top: 10px;
+  border-radius: 40px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  width: max-content;
+}
+
+
+
+
+.forgotPass {
+  font-size: 13px;
+  text-align: left;
+  color: #999;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.bottomText {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.bottomText a {
+  color: #6a0dad;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+
+.inputWithIcon {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.inputFull {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.eye {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: #666;
+  cursor: pointer;
+}
+/* 🔽 Responsive Styling: Mobile First */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .form {
+    padding: 0 1rem;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  .inputFull {
+    font-size: 0.95rem;
+    padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 30px;
+    display: block;
+    margin: 1rem 0 0;
+  }
+
+  .forgotPass {
+    font-size: 13px;
+    text-align: right;
+  }
+
+  .bottomText {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .eye {
+    font-size: 1.1rem;
+  }
+
+  .inputWithIcon {
+    margin-bottom: 0.8rem;
+  }
+}

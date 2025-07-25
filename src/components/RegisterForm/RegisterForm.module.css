@@ -1,0 +1,128 @@
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: #222;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 10px;
+}
+
+.required {
+  color: red;
+  margin-left: 4px;
+}
+
+
+
+
+
+.inputWithIcon {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn {
+  background: #4D007D;
+  color: white;
+  padding: 12px 3rem;
+  margin-top: 1rem;
+  border-radius: 40px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  width: max-content;
+}
+
+
+
+.bottomText {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.bottomText a {
+  color: #6a0dad;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.inputFull {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: #666;
+  cursor: pointer;
+}
+/* 🔽 Responsive styles - Mobile First */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .form {
+    padding: 0 1rem;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  .inputFull {
+    font-size: 0.95rem;
+    padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    margin: 1rem 0 0;
+    border-radius: 30px;
+  }
+
+  .bottomText {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .eyeIcon {
+    font-size: 1.2rem;
+  }
+}
