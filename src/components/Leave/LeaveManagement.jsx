@@ -79,7 +79,7 @@ const LeaveManagement = () => {
     { title: "Date", dataField: "date" },
     { title: "Reason", dataField: "reason" },
     { title: "Status", dataField: "status", type: "status" },
-    { title: "Docs", dataField: "doc", type: "actions" },
+    { title: "Docs", dataField: "doc", type:"doc" },
     { title: "Action", dataField: "actions", type: "actions" },
   ];
 

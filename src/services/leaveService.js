@@ -16,7 +16,7 @@ export const getLeaves = async (search = "", status = "") => {
 };
 
 export const updateLeaveStatus = async (id, status) => {
-  const res = await API.patch(`/leaves/${id}/status`, { status });
+  const res = await API.patch(`/leaves/${id}`, { status });
   return res.data;
 };
 

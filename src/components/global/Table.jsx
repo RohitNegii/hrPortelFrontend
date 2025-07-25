@@ -50,6 +50,22 @@ const CustomTable = ({ columns, data }) => {
                       </td>
                     );
 
+                  case "doc":
+                    return (
+                      <td key={colIndex}>
+                        {typeof value === "object" && value.label ? (
+                          <button
+                            onClick={value.onClick}
+                            className="text-blue-600 underline hover:text-blue-800"
+                          >
+                            {value.label}
+                          </button>
+                        ) : (
+                          <span>--</span>
+                        )}
+                      </td>
+                    );
+
                   case "actions":
                     return (
                       <td key={colIndex} className={styles.relative}>

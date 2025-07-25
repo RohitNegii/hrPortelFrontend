@@ -9,5 +9,5 @@ export const createCandidate = (data) =>
 export const getCandidates = (query = {}) =>
   API.get("/candidates", { params: query });
 export const downloadResume = (url) =>
-  window.open(`${API.defaults.baseURL}/candidates/download?resumeUrl=${url}`);
+  window.open(url);
 export const selectCandidate = (id) => API.patch(`/candidates/select/${id}`);

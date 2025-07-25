@@ -4,11 +4,12 @@ import API from "../../utils/api";
 import { validateEmail, validatePassword } from "../../utils/validate";
 import { useAuthStore } from "../../store/authStore";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 
 const LoginForm = () => {
+  const navigate=useNavigate()
   const [form, setForm] = useState({ email: "", password: "" });
   const [showPass, setShowPass] = useState(false);
   const login = useAuthStore((state) => state.login);
@@ -32,6 +33,7 @@ const LoginForm = () => {
 
       login(token, expiresIn);
       toast.success("Login successful!");
+      navigate("/dashboard")
     } catch (err) {
       toast.error(err.response?.data?.error || "Login failed");
     }
