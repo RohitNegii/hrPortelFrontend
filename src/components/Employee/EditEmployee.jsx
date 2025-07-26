@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./EditEmployee.module.css";
 import { toast } from "react-toastify";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 const positionOptions = [
   "Intern",
@@ -11,6 +13,8 @@ const positionOptions = [
 ];
 
 const EditEmployeeModal = ({ employee, onClose, onSave }) => {
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -67,11 +71,19 @@ const EditEmployeeModal = ({ employee, onClose, onSave }) => {
     return true;
   };
 
-  const handleSubmit = () => {
-    if (validate()) {
-      onSave(formData);
-    }
-  };
+ const handleSubmit = async () => {
+   if (validate()) {
+     setLoading(true);
+     try {
+       await onSave(formData); 
+     } catch (error) {
+       toast.error("Failed to save employee.");
+     } finally {
+       setLoading(false);
+     }
+   }
+ };
+
 
   return (
     <div className={styles.overlay}>
@@ -141,8 +153,12 @@ const EditEmployeeModal = ({ employee, onClose, onSave }) => {
           </div>
         </div>
 
-        <button className={styles.saveButton} onClick={handleSubmit}>
-          Save
+        <button
+          className={styles.saveButton}
+          onClick={handleSubmit}
+          disabled={loading}
+        >
+          {loading ? <ClipLoader size={20} color="#fff" /> : "Save"}
         </button>
       </div>
     </div>

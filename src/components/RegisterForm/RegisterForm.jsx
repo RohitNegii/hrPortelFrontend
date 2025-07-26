@@ -3,6 +3,7 @@ import styles from "./RegisterForm.module.css";
 import { toast } from "react-toastify";
 import API from "../../utils/api";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import ClipLoader from "react-spinners/ClipLoader";
 
 import {
   validateEmail,
@@ -12,6 +13,8 @@ import {
 import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
+  const [loading, setLoading] = useState(false);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -35,12 +38,16 @@ const RegisterForm = () => {
     if (form.password !== form.confirmPassword)
       return toast.error("Passwords do not match");
 
+    setLoading(true);
+
     try {
       const res = await API.post("/auth/register", form);
       toast.success(res.data.message || "Registration successful");
       setTimeout(() => (window.location.href = "/"), 1500);
     } catch (err) {
       toast.error(err.response?.data?.error || "Something went wrong");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -106,8 +113,8 @@ const RegisterForm = () => {
           </span>
         </div>
 
-        <button type="submit" className={styles.btn}>
-          Register
+        <button type="submit" className={styles.btn} disabled={loading}>
+          {loading ? <ClipLoader size={20} color="#fff" /> : "Register"}
         </button>
         <p className={styles.bottomText}>
           Already have an account? <Link to="/">Login</Link>

@@ -73,7 +73,7 @@
 
 .submitButton {
   grid-column: span 2;
-  padding: 12px;
+  padding: 12px 2rem;
   background-color: #6a1b9a;
   color: white;
   border: none;
@@ -82,6 +82,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: background 0.3s;
+  width: max-content;
+  margin-inline: auto;
 }
 
 .submitButton:hover {

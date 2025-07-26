@@ -6,9 +6,13 @@ import { useAuthStore } from "../../store/authStore";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 
 const LoginForm = () => {
+  const [loading, setLoading] = useState(false);
+
   const navigate=useNavigate()
   const [form, setForm] = useState({ email: "", password: "" });
   const [showPass, setShowPass] = useState(false);
@@ -25,6 +29,8 @@ const LoginForm = () => {
     if (!validatePassword(form.password))
       return toast.error("Password must be at least 6 characters");
 
+      setLoading(true);
+
     try {
       const res = await API.post("/auth/login", form);
       const token = res.data.token;
@@ -33,9 +39,11 @@ const LoginForm = () => {
 
       login(token, expiresIn);
       toast.success("Login successful!");
-      navigate("/dashboard")
+      navigate("/candidates");
     } catch (err) {
       toast.error(err.response?.data?.error || "Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -74,8 +82,8 @@ const LoginForm = () => {
 
         <div className={styles.forgotPass}>Forgot password?</div>
 
-        <button type="submit" className={styles.btn}>
-          Login
+        <button type="submit" className={styles.btn} disabled={loading}>
+          {loading ? <ClipLoader size={20} color="#fff" /> : "Login"}
         </button>
 
         <p className={styles.bottomText}>

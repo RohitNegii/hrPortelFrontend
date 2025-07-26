@@ -42,7 +42,7 @@ const CustomTable = ({ columns, data }) => {
                       <td key={colIndex}>
                         <span
                           className={`${styles.status} ${
-                            value === "Present" ? styles.present : styles.absent
+                            value === "present"||value=="Approved" ? styles.present : styles.absent
                           }`}
                         >
                           {value}

@@ -1,35 +1,53 @@
-
 .wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .leftSection {
   flex: 2;
   min-width: 350px;
-  height: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-
 }
 
 .rightSection {
   flex: 1;
   min-width: 280px;
-  background: #f9f9f9;
-  padding: 16px;
+  background: #fff;
+  padding-top: 0;
   border-radius: 8px;
   height: fit-content;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
 .filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 16px;
-  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.leaveHeading {
+  padding: 1rem;
+  background: #4b0082;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.approvedHeading {
+  font-size: 1rem;
+  padding: 1rem 0px;
+  color: #4b0082;
 }
 
 .addButton {
@@ -39,6 +57,7 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .table {
@@ -68,8 +87,16 @@
   margin-right: 8px;
 }
 
+.calender {
+  padding-inline: 1rem;
+  overflow-x: auto;
+}
+
 .approvedList {
   margin-top: 16px;
+  padding-inline: 1rem;
+  overflow-y: auto;
+  max-height: 300px;
 }
 
 .approvedItem {
@@ -83,4 +110,32 @@
   background-color: #4b0082 !important;
   color: white !important;
   border-radius: 50%;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .leftSection,
+  .rightSection {
+    max-height: unset;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .addButton {
+    width: 100%;
+  }
+
+  .calender,
+  .approvedList {
+    padding: 0.5rem;
+  }
 }
